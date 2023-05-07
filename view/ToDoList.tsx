@@ -42,6 +42,7 @@ const ToDoList = () => {
             const newItems = [...items];
             newItems.splice(index, 1);
             setItems(newItems);
+            Alert.alert("Delete Item", "Deleted successfully");
           },
         },
       ],
@@ -55,12 +56,24 @@ const ToDoList = () => {
 
   const handleUpdateItem = () => {
     const newItems = [...items];
-    newItems[selectedItem] = updatedValue;
-    setItems(newItems);
-    setSelectedItem(-1);
-    setUpdatedValue("");
-    Alert.alert("Update Item", "Updated successfully");
-    setModalVisible(false);
+    const trimmedValue = updatedValue.trim(); // trim the updated value
+
+    // Check if the trimmed value is not empty and has actually changed
+    if (trimmedValue !== "" && trimmedValue !== items[selectedItem]) {
+      newItems[selectedItem] = trimmedValue; // update the new items array with the trimmed value
+      setItems(newItems);
+      setSelectedItem(-1);
+      setUpdatedValue("");
+      Alert.alert("Update Item", "Updated successfully");
+      setModalVisible(false);
+    } else if (trimmedValue === "") {
+      Alert.alert("Error", "Item name cannot be empty");
+    } else {
+      Alert.alert(
+        "Error",
+        "Item name must be different from the original value"
+      );
+    }
   };
 
   return (
