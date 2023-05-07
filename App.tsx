@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
-import InputForm from "./components/InputForm";
+import ToDoList from "./view/ToDoList";
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
         <Text className="text-center text-4xl tracking-tighter font-bold mb-3">
           TO DO LIST
         </Text>
-        <InputForm />
+        <ToDoList />
       </View>
       <StatusBar style="auto" />
     </View>
