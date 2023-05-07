@@ -1,4 +1,4 @@
-import { Pressable, TextInput, View, Text } from "react-native";
+import { Pressable, TextInput, View, Text, Alert } from "react-native";
 import { useState } from "react";
 
 interface Type {
@@ -9,8 +9,11 @@ const InputForm = ({ onAdd }: Type) => {
   const [todo, setToDo] = useState("");
 
   const handleAdd = () => {
-    onAdd(todo);
-    setToDo("");
+    if (todo.trim() !== "") {
+      onAdd(todo);
+      Alert.alert("Add Item", "Added successfully");
+      setToDo("");
+    }
   };
 
   return (
