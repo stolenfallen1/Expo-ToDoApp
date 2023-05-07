@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View className="flex flex-1 items-center justify-start">
       <View className="py-10 px-5 mt-10">
-        <Text className="text-center text-4xl tracking-tighter font-bold mb-3">
+        <Text className="text-center text-4xl tracking-tighter font-bold mb-3 italic">
           TO DO LIST
         </Text>
         <ToDoList />
